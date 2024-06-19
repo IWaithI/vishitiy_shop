@@ -1,0 +1,131 @@
+body {
+    font-family: 'Comfortaa', sans-serif;
+}
+
+
+.background-for-main {
+    width: 100%;
+    height: 100%;
+}
+
+.my {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    
+}
+h1 {
+    text-align: center;
+    color: #a1a1a1;
+}
+
+
+
+.my input {
+    background-color: transparent;
+    border-color: #FFFFFF;
+    border-radius: 0%;
+    color: white;
+    width: 300px;
+    height: 40px;
+    outline: none;
+}
+
+.my input:focus, .my input:focus-within {
+    background-color: transparent;
+    box-shadow: none;
+    outline: none;
+    border-color: #FF7A00;
+    color: #FFFFFF;
+}
+
+.name {
+    color: #FFFFFF;
+}
+
+.link {
+    color: #FF7A00;
+    text-decoration: none;
+}
+
+/*  */
+ 
+
+.cont {
+    margin: 5px;
+}
+
+
+.btns {
+    background-color: #FFFFFF;
+    width: 152px;
+    height: 35px;
+    justify-content: center;
+    border-radius: 0%;
+    border: none;
+    margin: 0 auto; 
+    display: block;
+    text-align: center;
+
+}
+
+label {
+    color: #FFFFFF;
+}
+
+#id_username_helptext {
+    display: none;
+}
+
+#id_password2_helptext {
+    display: none;
+}
+
+#error_1_id_username {
+    display: none;
+}
+
+ul {
+    display: none;
+}
+
+/*  */
+ 
+
+.cont {
+    margin: 5px;
+}
+
+
+.btns {
+    background-color: #FFFFFF;
+    color: black;
+    width: 170px;
+    height: 35px;
+    justify-content: center;
+    border-radius: 10px;
+    border: none;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+
+}
+
+
+#form-for-logout {
+    background-color: #1A1A1A;
+}
+
+
+label {
+    color: #FFFFFF;
+}
+
+.form-text {
+    display: none;
+}
+
+footer {
+    display: none;
+}

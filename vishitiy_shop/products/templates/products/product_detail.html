@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block links %}
+
+<link rel="stylesheet" href="{% static 'products/css/style.css' %}">
+
+{% endblock %}
+
+
+{% block content %}
+<div class="p-20 text-white">
+    <div id="backlink" class="pt-3">
+        <a href="{% url "products:list" %}" class="transition-colors hover:text-red-500">
+            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" class="bi bi-arrow-left" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8"/>
+            </svg>
+        </a>
+    </div>
+      <div class="wrapper p-7">
+        <div class="row">
+          <div class="col">
+            <div>
+                <img src="{{product.image.url}}" alt="" width="715" height="850">
+            </div>
+            
+          </div>
+          <div class="col flex flex-col gap-12 self-start container-for-menu">
+            <div class="text-4xl">
+                <p class="text-4xl">{{product.title}}</p>
+                <p class="text-lg text-slate-200">Коллекція - {{product.collection}}</p>
+            </div>
+            <div class="self-start">
+                <form id="add-to-cart-form" method="post">
+                  <div class="flex flex-col gap-7">
+                    {% csrf_token %}
+                    <input type="hidden" name="product_id" value="{{product.id}}">
+                    <div class="text-3xl price-on-product">{% include "products/includes/price.html" %} <h4> UAH</h4></div>
+                    <input type="hidden" name="price" value="{{product.final_price}}">
+                    <div>
+                        <p class="text-lg">SIZE</p>
+                        <div>
+                          {% for size in product.available_sizes %}
+                          <input type="radio" class="btn-check" name="size" id="{{size}}-{{forloop.counter}}" autocomplete="off" value="{{size}}">
+                          <label class="btn btn-light" for="{{size}}-{{forloop.counter}}">{{size|upper}}</label>
+                          {% comment %} <button type="button" data-size="{{size}}" class="btn btn-light size toggle-size" data-bs-toggle="button">{{size|upper}}</button> {% endcomment %}
+                          {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-lg">COLOR</p>
+                        <div>
+                          {% for color in product.available_colors %}
+                            <input type="radio" class="btn-check" name="color" id="{{color}}-{{forloop.counter}}" autocomplete="off" value="{{color}}">
+                            <label class="btn btn-outline-light" for="{{color}}-{{forloop.counter}}">{{color|capfirst}}</label>
+                            {% comment %} <button type="button" data-color="{{color}}" class="btn btn-outline-light text-2xl px-4 py-2 toggle-color" style="border-radius: 40px;" data-bs-toggle="button">{{color|capfirst}}</button> {% endcomment %}
+                          {% endfor %}
+                        </div>
+                    </div>
+                    <div>
+                        <p class="text-lg">COUNT</p>
+                        {% include "products/includes/quantity.html" with incr_btn_class="product-increment-btn" decr_btn_class="product-decrement-btn" %}
+                    </div>
+                    <div class=" my-btns">
+                      <div class="btns-cont">
+                        <button class="btn btn-outline-light text-3xl  btns" id="add-to-cart-btn">ADD TO CART</button>
+                      </div>
+                      <div class="btns-cont">
+                        <a href="{% url "payments:email" %}" class="btn btn-outline-light text-3xl  btns">BUY NOW</a>
+                      </div>
+                    </div>
+                  </div>
+                </form>
+
+
+            </div>
+
+            <div class="accordion" id="accordionExample">
+              <div class="accordion-item">
+                <h2 class="accordion-header">
+                  <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    опис
+                  </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                    <strong>{{product.description}}</strong> 
+                  </div>
+                </div>
+              </div>
+
+          </div>
+        </div>
+      </div>
+</div>
+{% endblock content %}
+
+
+{% block js %}
+<script src="{% static "products/js/detail.js" %}" type="module"></script>
+{% endblock js %}

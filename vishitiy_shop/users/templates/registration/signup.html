@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %} {% load crispy_forms_tags %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap">
+{% endblock %}
+
+
+{% block content %}
+<img src="{% static "main/images/bg.jpg" %}" alt="" class="background-for-main">
+<div class="my">
+<h1>Реєстрація</h1>
+<form action="" method="POST">
+    {% csrf_token %}
+        <div class="cont">
+            {{form|crispy}}
+            <p class="name">Вже є пароль?<a href="{% url 'users:login' %}" class="link"> Вхід</a></p>
+            <button class="btns">Зареєструватися</button> 
+        </div>
+</form>
+</div>
+
+{% endblock %}
+
+
+<!-- password ffgfdsgkfgkedgf4848484484DDDDGGD -->

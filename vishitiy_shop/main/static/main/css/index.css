@@ -1,0 +1,147 @@
+body {
+    font-family: 'Comfortaa', sans-serif;
+}
+
+.cards {
+    height: 448px;
+}
+
+.background-for-main {
+    position: absolute;
+    height: 150vh;
+    width: 100%; 
+    z-index: -1;
+}
+
+.container-with-img {
+    position: relative;
+    text-align: center;
+    padding-top: 50px;
+}
+
+.text-on-top {
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text-on-bottom {
+    position: absolute;
+    width: 100%;
+    bottom: 8px;
+    left: 16px;
+}
+
+.subtitle {
+    position: relative;
+    padding: 0 100px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.collect {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: 25px;
+}
+
+.collect img {
+    transition: transform 0.3s;
+}
+
+.collect:hover img {
+    transform: scale(1.1);
+}
+
+.link-color {
+    color: #FF7A00;
+}
+
+.name-of-collection {
+    text-align: left;
+}
+
+.collections {
+    padding-bottom: 100px;
+}
+
+.slider {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.slider-items {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.slider-item img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+}
+
+.slider-item .item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+#scrollButton {
+    animation: bounce 1s infinite;
+    text-align: center;
+    cursor: pointer;
+}
+
+.text-white {
+    color: white;
+}
+
+.mt-2 {
+    margin-top: 0.5rem;
+}
+
+/* Media Queries */
+@media (max-width: 576px) {
+    .collect {
+        margin-bottom: 15px;
+    }
+
+    .subtitle {
+        padding: 0 20px;
+        padding-top: 50px;
+        padding-bottom: 50px;
+    }
+
+    .text-on-bottom {
+        left: 8px;
+    }
+}
+
+
+header nav .main {
+    color: #FF7A00;
+}

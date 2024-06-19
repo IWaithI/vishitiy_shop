@@ -1,0 +1,140 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static "css/tailwind/output.css" %}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/instantsearch.css@8.1.0/themes/satellite-min.css" integrity="sha256-p/rGN4RGy6EDumyxF9t7LKxWGg6/MZfGhJM/asKkqvA=" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
+    <link rel="stylesheet" href="{% static "css/header.css" %}">
+    <link rel="stylesheet" href="{% static "css/footer.css" %}">
+    <link rel="stylesheet" href="{% static "css/cart.css" %}">
+    {% block links %}
+
+    {% endblock %}
+
+</head>
+<body style="background-color:#0D0D0D;;">
+    <header>
+        <div class="wrap-logo">
+            <a href="{% url 'main:index' %}"> <img src="{% static 'img/logo.svg' %}" alt="logo" class="logo"> </a>
+        </div>
+
+        <nav>
+            <a href="{% url 'main:index' %}" class="links">Головна</a>
+            <a href="{% url 'products:list' %}" class="links">Всі колекції </a>
+            <a href="{% url 'your_design:design' %}" class="links">Твій дизайн</a>
+        </nav>
+
+        <div id="searchbox"></div>
+
+        <div class="cntainer-for-cart-user">
+            <h5 class="username-settings" style="font-size: 20px;"> {{user.username}}</h5>
+
+            <div class="img-user-cart max-h-10">
+                <div class="dropdown">
+                    <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <img src="{% static 'img/user.svg' %}" class="user-cart" height="35">
+                    </button>
+                    <ul class="dropdown-menu">
+                        {% if user.is_authenticated %}
+                            <li><a class="dropdown-item" href="{% url "users:logout" %}">Вийти</a></li>
+                        {% else %}
+                            <li><a class="dropdown-item" href="{% url "users:login" %}">Увійти</a></li>
+                            <li><a class="dropdown-item" href="{% url "users:signup" %}">Зареєструватися</a></li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>           
+        </div>
+        {% include "includes/cart.html" %}
+    </header>
+
+    <main>
+        <div class="search-container absolute left-0 top-auto w-full z-50 p-5 bg-white">
+            <div class="search-results"></div>
+            <div class="refinements">
+                <div id="type-refinement"></div>
+                <div id="color-refinement"></div>
+                <div id="size-refinement"></div>
+            </div>
+        </div>
+        {% block content %}
+
+        {% endblock %}
+        <div class="messages">
+            {% if messages %}
+                {% for msg in messages %}
+                    {% if msg.tags == 'success' %}<div class="msg position-fixed start-50 translate-middle-x alert alert-success opacity-0" style="transition: opacity 0.4s;  top: 25%;">{{msg}}</div>{% endif %}
+                    {% if msg.tags == 'warning' %}<div class="msg position-fixed start-50 translate-middle-x alert alert-warning opacity-0" style="transition: opacity 0.4s;  top: 25%;">{{msg}}</div>{% endif %}
+                {% endfor %}
+            {% endif %}
+        </div>
+        <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 50">
+      
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <a href="{% url 'main:index' %}"><h3 class="name-of-company">vishitiy.ua</h3></a>
+
+            <div class="container-for-links">
+                <div class="links">
+                    <a href="#">Про нас</a>
+                    <a href="{% url 'your_design:design' %}">Контактна інформація</a>
+                    <a href="#">Питання та відповіді</a>
+                </div>
+                <div class="links">
+                    <a href="{% url "users:signup" %}">Зареєструватися</a>
+                    <a href="{% url "users:login" %}">Увійти</a>
+                    <a href="{% url 'products:list' %}">Продукти</a>
+                </div>
+                <div class="links">
+                    <a href="/products/?type=&collection=4">GYM</a>
+                    <a href="/products/?type=&collection=6">COUPLES</a>
+                    <a href="/products/?type=&collection=1">ART</a>
+
+                </div>
+            </div>
+
+            <!--  -->
+
+            <div class="container-for-social-links">
+                <div class="links-on-social">
+                    <a href="https://www.instagram.com/vishitiy.ua?igsh=MXZ4ejM5eDR5MWgwMQ==" target="_blank"> <img src="{% static 'img/instagram.svg' %}" > </a>
+                </div>
+
+                <div class="links-on-social">
+                    <a href="https://www.facebook.com/profile.php?id=100090697746664" target="_blank"> <img src="{% static 'img/facebook.svg' %}" > </a>
+                </div>
+
+                <div class="links-on-social">
+                    <a href="https://www.tiktok.com/@vishitiy.ua?_t=8n8Qs4st9oU&_r=1" target="_blank"> <img src="{% static 'img/tiktok.svg' %}" > </a>
+                </div>
+            </div>
+
+        </div>
+
+        <!--  -->
+
+        <div class="authors-container">
+                <p class="authors">© 2023 vishitiy.UA. Всі права зарезервовані.</p>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <script src="{% static "js/messages.js" %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.23.3/dist/algoliasearch-lite.umd.js" integrity="sha256-1QNshz86RqXe/qsCBldsUu13eAX6n/O98uubKQs87UI=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/instantsearch.js@4.68.0/dist/instantsearch.production.min.js" integrity="sha256-pk7I7Xu6RA1qVbVU7Haw3ULL8nd5CXM5ith59df0/7I=" crossorigin="anonymous"></script>
+    <script src="{% static "js/search.js" %}"></script>
+    <script src="{% static "js/cart.js" %}" type="module"></script>
+    {% block js %}{% endblock js %}
+</body>
+</html>

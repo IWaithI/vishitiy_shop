@@ -1,0 +1,128 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: #1A1A1A;
+    padding: 20px 10px;
+    z-index: 1000;
+}
+
+.wrap-logo {
+    display: flex;
+    align-items: center;
+}
+
+header a {
+    color: #f1f1f1;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+}
+
+.username-settings {
+    color: #f1f1f1;
+    font-size: 30px;
+}
+
+main {
+    flex: 1;
+    padding-top: 80px; /* Добавляем отступ сверху для основного содержимого */
+}
+
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    background-color: #1A1A1A;
+    padding: 20px 10px;
+}
+
+footer a {
+    color: #f1f1f1;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+.container {
+    width: 100%;
+}
+
+.name-of-company {
+    color: #f1f1f1;
+}
+
+footer div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.container-for-links {
+    display: flex;
+    justify-content: space-evenly;
+    width: 900px;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.container-for-social-links {
+    width: 15%;
+}
+
+
+
+footer img {
+    color: aliceblue;
+    width: 45px;
+    height: 45px;
+}
+
+.authors-container {
+    justify-content: center;
+    align-items: center;
+    border-top: #f1f1f1 solid 1px;
+    width: 70%;
+    height: 25px;
+}
+
+.authors {
+    color: #f1f1f1;
+    margin-top: 30px;
+}
+
+
+
+
+ 
+
+

@@ -1,0 +1,62 @@
+
+<div class="cart">
+    <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasScrolling" aria-controls="offcanvasScrolling" class="text-white">
+        <svg width="35" height="35" viewBox="0 0 56 55" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.25 4.58333L7.375 13.75V45.8333C7.375 47.0489 7.85789 48.2147 8.71743 49.0742C9.57697 49.9338 10.7428 50.4167 11.9583 50.4167H44.0417C45.2572 50.4167 46.423 49.9338 47.2826 49.0742C48.1421 48.2147 48.625 47.0489 48.625 45.8333V13.75L41.75 4.58333H14.25Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M7.375 13.75H48.625" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M37.1663 22.9167C37.1663 25.3478 36.2006 27.6794 34.4815 29.3985C32.7624 31.1176 30.4308 32.0833 27.9997 32.0833C25.5685 32.0833 23.2369 31.1176 21.5179 29.3985C19.7988 27.6794 18.833 25.3478 18.833 22.9167" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <div class="offcanvas offcanvas-end our-cart" data-bs-scroll="true" data-bs-backdrop="false" tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+      <div class="offcanvas-header border border-bottom">
+        <h6>Закрити</h6>
+        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+      </div>
+      <div class="offcanvas-body">
+        <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Ваш кошик</h5>
+        <div class="cart-items flex flex-col gap-6">
+            {% for item in cart %}
+                <div class="item ">
+                    {% with product=item.product %}
+                    <div class="card flex flex-row card-in-cart">
+                        <img src="{{product.image.url}}" class="card-img-top" alt="..." style="width: 85px">
+                        <div class="card-body">
+                        <h5 class="card-title">{{product.type|capfirst}} {{product.title}}</h5>
+                        <p class="card-text">Розмiр: {{item.size}}, Колiр: {{item.color}}</p>
+                        </div>
+                        <div class="card-footer flex items-center flex-col gap-2">
+                            <div>
+                                {% include "products/includes/quantity.html" with value=item.quantity incr_btn_class="cart-increment-btn" decr_btn_class="cart-decrement-btn" %}
+                            </div>
+                            <div>
+                                <form action="{% url "cart:remove" %}" method="post" class="remove-from-cart-form">
+                                    {% csrf_token %}
+                                    <input type="hidden" name="product_id" value="{{product.id}}">
+                                    <button class="btn text-white hover:text-red-500">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-trash3" viewBox="0 0 16 16">
+                                            <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5M11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47M8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5"/>
+                                        </svg>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    {% endwith %}
+                </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="container-for-button">
+            <hr>
+            <a href="{% url "payments:email" %} " class="btns">Оформити замовлення</a>
+        </div>
+      </div>
+    </div>
+
+   
+
+</div>
+
+

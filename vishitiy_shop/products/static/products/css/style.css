@@ -1,0 +1,247 @@
+body {
+    font-family: 'Comfortaa', sans-serif;
+}
+
+hr {
+    border-color: #D9D9D9;
+}
+
+header nav .collections {
+    color: #FF7A00;
+} 
+
+.container-main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; 
+    width: 100%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.menu {
+    width: 100%;
+    color: white;
+    margin-bottom: 20px; 
+}
+
+.cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; 
+}
+
+.card {
+    background-color: rgb(26, 26, 26);
+    margin: 10px; 
+    flex: 0 0 18rem;
+    max-width: 18rem; 
+}
+
+#vis {
+    font-family: 'Signika';
+    color: rgb(255, 115, 0);
+}
+
+#h {
+    font-family: 'Signika';
+    color: aliceblue;
+}
+
+p {
+    font-family: 'Signika';
+    color: aliceblue;
+}
+
+.btn {
+    font-family: 'Signika';
+}
+
+
+
+
+.input {
+    height: 15px;
+    width: 15px;
+    background-color: black;
+}
+
+#h1 {
+    font-size: 24px;
+    color: white;
+}
+
+.hr {
+    border: 1.5px solid white;
+}
+
+.price {
+    height: 30px;
+    width: 100px;
+    color: black;
+}
+
+#price {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.menu input[type="number"].price {
+    background-color: black;
+    color: white;
+    border: 2px solid orange; 
+    border-radius: 3px; 
+    padding: 5px; 
+}
+
+.div {
+    width: 100%;
+    color: white;
+}
+
+.price-on-product {
+    display: flex;
+    justify-content: left;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #FF7A00;
+    border-radius: 3px;
+    cursor: pointer;
+    background-color: transparent;
+    box-shadow: 0 0 2px #FF7A00;
+    border-radius: 0%;
+}
+
+input[type="checkbox"]:hover {
+    background-color: transparent;
+    box-shadow: transparent;
+    box-shadow: 0 0 2px #FF7A00;
+    border-radius: 0%;
+}
+
+input[type="checkbox"]:checked {
+    border-color: #FF7A00;
+    box-shadow: 0 0 2px #FF7A00;
+    background-color: transparent;
+    outline: none;
+    border-radius: 0%;
+}
+
+
+.my-btns {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    
+}
+
+
+.btns-cont {
+    width: 100%;
+    padding-bottom: 30px;
+}
+
+
+.btns-cont .btns {
+    width: 100%;
+    border-radius: 0%;
+   
+}
+
+
+
+
+
+
+.image-container {
+    display: flex;
+    justify-content: center;
+}
+
+.image-container .product-image{
+    width: 50% !important
+}
+
+.our-container {
+    display: flex;
+    margin: auto;
+}
+
+
+.buttons-cart {
+    width: 60%;
+    border-radius: 0%;
+}
+
+
+#counter {
+    border-radius: 0%;
+}
+
+
+.container-for-menu {
+    padding: 20px;
+    display: flex;
+    justify-content: left;
+    flex-direction: column;
+    border: #D9D9D9 1px solid;
+    max-width:40%;
+    max-height: fit-content;
+
+    
+}
+
+/* ACCORDIONS */
+
+.accordion-container {
+    width: 90%;
+    position: relative;
+    z-index: 111;
+}
+
+.accordion-item {
+    margin-bottom: 1rem;
+}
+
+.accordion-button {
+    background-color: #333;
+    color: #FFF;
+    font-size: 1.2rem;
+    padding: 1rem;
+    border: none;
+}
+
+.accordion-button:not(.collapsed) {
+    background-color: #444;
+    color: #FFA500;
+}
+
+.accordion-button:focus {
+    box-shadow: none;
+}
+
+.accordion-body {
+    background-color: #222;
+    color: #DDD;
+    padding: 1.5rem;
+    font-size: 1rem;
+}
+
+.accordion-content {
+    
+    overflow-y: auto; 
+    padding-right: 1rem;
+}
+
+
+
+
+

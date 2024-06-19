@@ -1,0 +1,38 @@
+<div class="btn-group">
+  <button class="btn btn-outline-light text-2xl" id="decrement-btn">-</button>
+  <input type="text" id="counter" class="focus:outline-none text-center bg-transparent border text-white border-white font-semibold outline-none w-10" name="quantity" value="0"></input>
+  <button class="btn btn-outline-light text-2xl" id="increment-btn">+</button>
+</div>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+      new handleCounter()
+  })
+  class handleCounter{
+
+      constructor() {
+        this.decrementButton = document.querySelector(
+         '#decrement-btn'
+        );
+        this.incrementButton = document.querySelector(
+          '#increment-btn'
+        );
+        this.counter = document.querySelector('#counter')
+        this.decrementButton.addEventListener('click', this.decrement.bind(this));
+        this.incrementButton.addEventListener('click', this.increment.bind(this));
+        this.minboundary = {{widget.attrs.minboundary}}
+        this.maxboundary = {{widget.attrs.maxboundary}}
+      };
+      decrement(e) {
+        if (this.counter.value > this.minboundary) {
+          this.counter.value--;
+        }
+      };
+    
+      increment(e) {
+        if (this.counter.value < this.maxboundary) {
+          this.counter.value++;
+        }   
+      }
+    }
+</script>

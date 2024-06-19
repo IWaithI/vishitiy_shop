@@ -1,0 +1,54 @@
+body { 
+  margin: 0;
+  font-family: 'Comfortaa', sans-serif;
+  background-color: #0D0D0D;
+}
+
+/* Работает в Chrome, Edge и Safari */
+*::-webkit-scrollbar {
+background-color: #1A1A1A;    /* цвет бегунка */
+border: 1px solid #f1f1f1;  /* отступ вокруг бегунка */  
+}
+
+body::-webkit-scrollbar-thumb {
+background-color: #f1f1f1;    /* цвет бегунка */
+}
+
+
+* ::-moz-selection{
+  background-color:#FF7A00;
+  color:#0D0D0D;
+}
+
+* ::selection{
+  background-color:#FF7A00;
+  color:#0D0D0D;
+}
+
+.ais-Hits-list { display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 1em; }
+
+a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+
+.btn-danger {
+  background-color: #ff0000;
+}
+
+.btn-light.active {
+  background-color: #ff0000;
+  border: 1px solid #ff0000;
+}
+
+.btn-check:checked+.btn {
+  background-color: #ff0000;
+  border: 1px solid #ff0000;
+}
+
+
+
+
+
+
+

@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'users/css/style.css' %}">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap">
+{% endblock %}
+
+
+{% block content %}
+<img src="{% static "main/images/bg.jpg" %}" alt="" class="background-for-main">
+<div class="d-flex justify-content-center align-items-center mt-5 " >
+    <div class="card text-light my" id="form-for-logout">
+        <div class="card-body">
+          <h5 class="card-title">Ви впевнені що хочете вийти з аккаунту?</h5>
+          <h6 class="card-subtitle mb-2 text-secondary">Ви зможете завжди увійти в любий час</h6>
+          <div class="d-flex gap-2 pt-3">
+              <button onclick="history.back();" class="btn btn-outline-light">Отмена</button>
+              <form method="post">
+                {% csrf_token %}
+                <button class="stantart-btn px-4 py-2">Підтвердити</button>
+              </form>
+          </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
